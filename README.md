@@ -1,5 +1,5 @@
 # What the Dub?! - Forsen pack
-This is a pack of clips from twitch.tv/forsen to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
+This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
 ## How to install
 1. Download the repository to get all the clips and prompts. Unpack the archive.
