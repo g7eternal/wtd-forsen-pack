@@ -2,7 +2,7 @@
 This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
 ## How to install
-1. Download the repository to get all the clips and prompts. Unpack the archive.
+1. [Download](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip) the repository to get all the clips and prompts. Unpack the archive.
 2. In Steam library select your *What the Dub?!* game, right-click to get into *Properties*, then *Local Files*. Then press *Browse* to see the game's files.
 3. Navigate to the following folder: _WhatTheDub_Data\StreamingAssets_
 4. Rename or remove the following folders:
