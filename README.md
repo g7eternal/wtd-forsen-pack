@@ -8,7 +8,7 @@ This is a pack of clips from twitch.tv/forsen to be used in the game called [Wha
 4. Rename or remove the following folders:
     - UiVideo
     - TheEndClips
-5. If you do NOT want to use original clips (instead you want to use the Forsen's prompts exclusively), rename/remove the following folders as well:
+5. **If you do NOT want to use original clips** (instead you want to use the Forsen's prompts exclusively), rename/remove the following folders as well:
     - Subtitles
     - VideoClips
 6. Copy all the folders from the unpacked archive into _StreamingAssets_.
