@@ -1,5 +1,5 @@
 # What the Dub?! - Forsen pack
-This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
+This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https://twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
 ## How to install
 1. [Download](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip) the repository to get all the clips and prompts. Unpack the archive.
@@ -22,5 +22,5 @@ Info on how the game works was taken from [here](https://www.reddit.com/r/Reddit
 
 ## How to contribute
 Any way you'd like to:
-- pm me on discord (g7eternal#8037), [twitch](twitch.tv/g7eternal) or [twitter](twitter.com/g7_eternal)
+- pm me on discord (g7eternal#8037), [twitch](https://twitch.tv/g7eternal) or [twitter](https://twitter.com/g7_eternal)
 - or create a merge request with new files
