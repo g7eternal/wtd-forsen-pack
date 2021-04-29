@@ -3,13 +3,17 @@
 Forsen: NO!
 
 2
-00:00:04,900 --> 00:00:05,533
-What are you doing?
+00:00:04,320 --> 00:00:04,640
+Nina: Seb...
 
 3
+00:00:04,900 --> 00:00:05,533
+Forsen: What are you doing?
+
+4
 00:00:05,600 --> 00:00:08,200
 Nina: [female_dub]
 
-4
+5
 00:00:08,500 --> 00:00:09,433
 Forsen: I was kidding...
