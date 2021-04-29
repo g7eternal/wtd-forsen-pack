@@ -2,19 +2,17 @@
 This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https://twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
 ## How to install
-1. Download and unpack the files:
-    - [GitHub repository](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip)
-    - [Mirror (RU)](https://g7eternal.ru/misc/wtd-forsen-pack.zip)
-3. In Steam library select your *What the Dub?!* game, right-click to get into *Properties*, then *Local Files*. Then press *Browse* to see the game's files.
-4. Navigate to the following folder: _WhatTheDub_Data\StreamingAssets_
-5. Rename or remove the following folders:
+1. Download and unpack the files: [WTD - Forsen pack](https://g7eternal.ru/misc/wtd-forsen-pack.zip)
+2. In Steam library select your *What the Dub?!* game, right-click to get into *Properties*, then *Local Files*. Then press *Browse* to see the game's files.
+3. Navigate to the following folder: _WhatTheDub_Data\StreamingAssets_
+4. Rename or remove the following folders:
     - UiVideo
     - TheEndClips
-6. **If you do NOT want to use original clips** (instead you want to use the Forsen's prompts exclusively), rename/remove the following folders as well:
+5. **If you do NOT want to use original clips** (instead you want to use the Forsen's prompts exclusively), rename/remove the following folders as well:
     - Subtitles
     - VideoClips
-7. Copy all the folders from the unpacked archive into _StreamingAssets_.
-8. All done! Start up the game to confirm: installation has been successful if intro is changed.
+6. Copy all the folders from the unpacked archive into _StreamingAssets_.
+7. All done! Start up the game to confirm: installation has been successful if intro is changed.
 
 ## How to remove pack
 1. In Steam library select your *What the Dub?!* game, right-click to get into *Properties*, then *Local Files*. Then press *Browse* to see the game's files.
