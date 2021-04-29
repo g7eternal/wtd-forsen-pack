@@ -31,4 +31,21 @@ Info on how the game works was taken from [here](https://www.reddit.com/r/Reddit
 ## How to contribute
 Any way you'd like to:
 - pm me on discord (g7eternal#8037), [twitch](https://twitch.tv/g7eternal) or [twitter](https://twitter.com/g7_eternal)
-- or create a merge request with new files
+- or create a merge request with new files. If so, please follow the guidelines:
+  - clips in _VideoClips_:
+    - MP4 (AVC/AAC); 720p; any bitrate, any fps
+    - normalize the volume (peaks at -12db)
+    - please try to keep the reasonable size (up to 20mb) and length (10±5 sec)
+    - file name should match the pattern of: forsen-\[clip name\].mp4
+  - subtitles in _Subtitles_:
+    - generic .srt subtitle files
+    - Do NOT use ```:``` (colon) in mid-sentence as it breaks the string in game - use it only to mark the person who is currently speaking!
+    - file name should match the pattern of: forsen-\[clip name\].srt (matching the name of corresponding clip)
+  - videos in _UiVideos_:
+    - MP4 (AVC/AAC); 1080p; any bitrate, any fps
+    - name and length of a clip should match those of the original clip
+  - videos in _TheEndClips_:
+    - MP4 (AVC/AAC); 720p; any bitrate, any fps
+    - please try to keep the reasonable size (up to 20mb) and length (<10 sec)
+    - file names are not restricted
+
