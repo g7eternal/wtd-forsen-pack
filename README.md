@@ -10,13 +10,14 @@ This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https:
 
 3. Navigate to the following folder: _WhatTheDub_Data\StreamingAssets_
 
-4. a. **If you want to keep the original movie clips in the game**, drag and drop the pack files into the _StreamingAssets_ folder
+4. 
+    a. **If you want to keep the original movie clips in the game**, drag and drop the pack files into the _StreamingAssets_ folder
 
-![defualt clips and forsen clips](https://user-images.githubusercontent.com/18620902/116491289-973a0200-a8aa-11eb-9475-16b2a87b2b55.gif)
+    ![defualt clips and forsen clips](https://user-images.githubusercontent.com/18620902/116491289-973a0200-a8aa-11eb-9475-16b2a87b2b55.gif)
 
-4. b. **If you want to play the the forsen pack only** create a new folder to backup the original movie clips and move the forsen pack files into the _StreamingAssets_ folder
+    b. **If you want to play the the forsen pack only** create a new folder to backup the original movie clips and move the forsen pack files into the _StreamingAssets_ folder
 
-![forsen clips only](https://user-images.githubusercontent.com/18620902/116491700-8b027480-a8ab-11eb-9c9e-89aeea4a9d90.gif)
+    ![forsen clips only](https://user-images.githubusercontent.com/18620902/116491700-8b027480-a8ab-11eb-9c9e-89aeea4a9d90.gif)
 
 5. All done! Start up the game to confirm: installation has been successful if intro is changed.
 
@@ -25,13 +26,14 @@ This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https:
 
 2. Navigate to the following folder: _WhatTheDub_Data\StreamingAssets_
 
-3. a. **If you merged the forsen pack with the original movie clips:**
+3. 
+    a. **If you merged the forsen pack with the original movie clips:**
 
     * Delete the _UiVideo, TheEndClips, Subtitles, VideoClips_ folders
     * Select *What the Dub?!* in your Steam library right-click -> *Properties* -> *Local Files* -> *Verify integrity of game files*
     * Steam will download the original movie clips
     
-3. b. **If you replaced the original movie clips with the forsen pack:**
+    b. **If you replaced the original movie clips with the forsen pack:**
 
     * Delete the _UiVideo, TheEndClips, Subtitles, VideoClips_ folders from the the _StreamingAssets_ folder
     * Move the original files from the _backup_ folder to the _StreamingAssets_ folder
