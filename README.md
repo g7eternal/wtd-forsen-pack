@@ -27,14 +27,14 @@ This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https:
 
 3. a. **If you merged the forsen pack with the original movie clips:**
 
-* Delete the _UiVideo, TheEndClips, Subtitles, VideoClips_ folders
-* Select *What the Dub?!* in your Steam library right-click -> *Properties* -> *Local Files* -> *Verify integrity of game files*
-* Steam will download the original movie clips
+    * Delete the _UiVideo, TheEndClips, Subtitles, VideoClips_ folders
+    * Select *What the Dub?!* in your Steam library right-click -> *Properties* -> *Local Files* -> *Verify integrity of game files*
+    * Steam will download the original movie clips
     
 3. b. **If you replaced the original movie clips with the forsen pack:**
 
-* Delete the _UiVideo, TheEndClips, Subtitles, VideoClips_ folders from the the _StreamingAssets_ folder
-* Move the original files from the _backup_ folder to the _StreamingAssets_ folder
+    * Delete the _UiVideo, TheEndClips, Subtitles, VideoClips_ folders from the the _StreamingAssets_ folder
+    * Move the original files from the _backup_ folder to the _StreamingAssets_ folder
 
 ## Technical info
 Info on how the game works was taken from [here](https://www.reddit.com/r/RedditAndChill/comments/mtacw3/lets_make_new_what_the_dub_vids_peepopog/).
