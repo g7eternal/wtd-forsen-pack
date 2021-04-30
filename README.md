@@ -66,3 +66,6 @@ Any way you'd like to:
     - please try to keep the reasonable size (up to 20mb) and length (<10 sec)
     - file names are not restricted
 
+## More packs
+If you are looking for more custom clips, check out these packs:
+- [What the Dub?! - nymn pack](https://github.com/badoge/wtd-nymn-pack)
