@@ -52,6 +52,7 @@ Any way you'd like to:
   - clips in _VideoClips_:
     - MP4 (AVC/AAC); 720p; any bitrate, any fps
     - normalize the volume (peaks at -12db)
+    - cutting the audio of the \[insert your dub\] part of the clip is not necessary! (game automatically does that)
     - please try to keep the reasonable size (up to 20mb) and length (10±5 sec)
     - file name should match the pattern of: forsen-\[clip name\].mp4
   - subtitles in _Subtitles_:
