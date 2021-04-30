@@ -2,7 +2,7 @@
 This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https://twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
 ## How to install
-1. Download and unpack the files: [WTD - Forsen pack](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip) (~400MB)
+1. Download and unpack the files (~500MB): \[ [GitHub](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip) \]
 
 2. In your Steam library select the *What the Dub?!* game, right-click -> Manage -> Browse local files
 
@@ -48,6 +48,7 @@ Info on how the game works was taken from [here](https://www.reddit.com/r/Reddit
 Any way you'd like to:
 - pm me on discord (g7eternal#8037), [twitch](https://twitch.tv/g7eternal) or [twitter](https://twitter.com/g7_eternal)
 - or create a merge request with new files. If so, please follow the guidelines:
+  - please keep the submissions "Forsen-related": do not send the clips which are unrelated to Forsen (i.e. other streamers unless Forsen is in the clip)
   - clips in _VideoClips_:
     - MP4 (AVC/AAC); 720p; any bitrate, any fps
     - normalize the volume (peaks at -12db)
