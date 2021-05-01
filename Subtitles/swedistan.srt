@@ -1,7 +1,0 @@
-1
-00:00:00,800 --> 00:00:02,300
-Forsen: Welcome to swedistan
-
-2
-00:00:03,500 --> 00:00:07,000
-Forsen: [male_dub]
