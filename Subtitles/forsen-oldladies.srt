@@ -23,6 +23,3 @@ Nina: [female_dub]
 00:00:09,700 --> 00:00:10,733
 Reckful: I didn't know!..
 
-7
-00:00:11,777 --> 00:00:13,000
-Wait, don't leave!

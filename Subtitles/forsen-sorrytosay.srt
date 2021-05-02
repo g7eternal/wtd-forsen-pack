@@ -1,6 +1,6 @@
 1
 00:00:00,333 --> 00:00:02,753
-TTS: Hey Forsen! Sorry to say...
+obiwan: Hey Forsen! Sorry to say...
 
 2
 00:00:02,790 --> 00:00:08,383

@@ -4,4 +4,5 @@ Forsen: Welcome to swedistan
 
 2
 00:00:03,500 --> 00:00:07,000
-Forsen: [male_dub]
+[male_dub]
+
