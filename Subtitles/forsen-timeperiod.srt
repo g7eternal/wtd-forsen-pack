@@ -1,9 +1,8 @@
 1
-00:00:00,100 --> 00:00:03,000
-forsen: If you are 
-just living in this time period
+00:00:00,100 --> 00:00:03,400
+forsen: If you are just living in this time period
 
 2
-00:00:03,900 --> 00:00:07,400
+00:00:04,567 --> 00:00:07,917
 [male_dub]
 
