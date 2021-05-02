@@ -1,16 +1,12 @@
 1
-00:00:01,666 --> 00:00:03,467
-What is this CD room? Huh?
+00:00:00,200 --> 00:00:03,200
+forsen: What does this "CD room" mean? Huh?
 
 2
-00:00:05,700 --> 00:00:08,433
-What does this "CD room" mean? Huh?
-
-3
-00:00:09,567 --> 00:00:11,267
+00:00:04,100 --> 00:00:05,900
 [male_dub]
 
-4
-00:00:11,269 --> 00:00:12,265
-Oooh, alright.
+3
+00:00:5,950 --> 00:00:6,450
+forsen: Oooh, alright.
 
