@@ -57,6 +57,7 @@ Any way you'd like to:
     - cutting the audio of the \[insert your dub\] part of the clip is not necessary! (game automatically does that)
     - please try to keep the reasonable size (up to 20mb) and length (10±5 sec)
     - file name should match the pattern of: forsen-\[clip name\].mp4
+    - *side note*: it is not necessary to mute the \[dubbed\] part when editing the clip, the game does that automatically for you. You could also _"abuse"_ this in order to make a dirty audio cut under the \[dub\].
   - subtitles in _Subtitles_:
     - generic .srt subtitle files
     - Do NOT use ```:``` (colon) in mid-sentence as it breaks the string in game - use it only to mark the person who is currently speaking!
