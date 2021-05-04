@@ -2,8 +2,8 @@
 This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https://twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
 ## How to install
-1. Download and unpack the latest version of the pack (~680MB): 
-    + Forsen pack (~0.6gb): \[ [GitHub](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.2.0/wtd-forsen-pack.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip) \]
+1. Download and unpack the latest version of the pack: 
+    + Forsen pack (~0.7gb): \[ [GitHub](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.3.0/wtd-forsen-pack.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip) \]
     + Extended pack (bonus clips from [nymn pack](https://github.com/badoge/wtd-nymn-pack), ~1gb): [GitHub](https://github.com/badoge/wtd-nymn-pack/releases/download/v2forsen/wtd-pack-for-forsen.zip)
 
 2. In your Steam library select the *What the Dub?!* game, right-click -> Manage -> Browse local files
@@ -60,7 +60,8 @@ Any way you'd like to:
     - *side note*: it is not necessary to mute the \[dubbed\] part when editing the clip, the game does that automatically for you. You could also _"abuse"_ this in order to make a dirty audio cut under the \[dub\].
   - subtitles in _Subtitles_:
     - generic .srt subtitle files
-    - Do NOT use ```:``` (colon) in mid-sentence as it breaks the string in game - use it only to mark the person who is currently speaking!
+    - Do NOT use the following symbols mid-sentence: ```: [ ]``` (colon and square brackets)
+      - these symbols are reserved for internal use: colon marks the speaker's name; square brackets mark the \[dubbed\] part
     - file name should match the pattern of: forsen-\[clip name\].srt (matching the name of corresponding clip)
   - videos in _UiVideos_:
     - MP4 (AVC/AAC); 1080p; any bitrate, any fps
