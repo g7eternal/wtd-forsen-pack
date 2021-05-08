@@ -1,7 +1,12 @@
 1
-00:00:00,000 --> 00:00:01,100
-Who i would be...
+00:00:00,000 --> 00:00:00,001
+Prompt at the top: "If you could be any superhero, who would you be and why?"
 
 2
-00:00:01,100 --> 00:00:05,400
+00:00:00,400 --> 00:00:01,560
+Forsen: Who would I be?
+I would be...
+
+3
+00:00:01,565 --> 00:00:04,920
 [male_dub]
