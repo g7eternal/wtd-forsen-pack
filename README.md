@@ -4,6 +4,10 @@ This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https:
 > ⚠ Clips in this pack contain strong language :)
 
 ## How to install
+### Automatic installation
+Get the [auto-installer](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.4.1/wtd-forsen-pack.exe) - it will take care of finding your game and importing all the new clips! The whole process is just a few clicks!
+
+### Manual installation
 1. Download and unzip the latest version of the pack: 
     + Forsen pack (~0.85gb): 
         + [GitHub](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.4.1/wtd-forsen-pack.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip)
@@ -33,13 +37,15 @@ This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https:
 2. Navigate to the following folder: _WhatTheDub_Data\StreamingAssets_
 
 3. 
-    a. **If you merged the forsen pack with the original movie clips:**
-
+    a. **If you used an automatic installer:**
     * Delete the following folders: _UiVideo, TheEndClips, Subtitles, VideoClips_
     * Select **What the Dub?!** in your Steam library right-click -> *Properties* -> *Local Files* -> *Verify integrity of game files*
     * Steam will restore the original movie clips automatically
     
-    b. **If you replaced the original movie clips with the forsen pack:**
+    b. **If you merged the forsen pack with the original movie clips:**
+    * do the same as above
+    
+    c. **If you replaced the original movie clips with the forsen pack:**
 
     * Delete the following folders: _UiVideo, TheEndClips, Subtitles, VideoClips_
     * Move the original files from the _backup_ folder back to the _StreamingAssets_ folder
