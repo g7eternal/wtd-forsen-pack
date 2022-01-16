@@ -1,6 +1,9 @@
 # This file contains a list of clips which will be excluded from the game if user selects the "Max Twitch-friendly mode" during installation.
 # Lines starting with # are omitted from parsing.
 
+# If you are installing the pack manually, you can still perform the exclusion.
+# Navigate to "WhatTheDub/WhatTheDub_Data/StreamingAssets/VideoClips" and delete clips which are listed below.
+
 # One line - one clip name. No folder names, no nothing. Just clip name.
 
 forsen-bannedword
