@@ -1,0 +1,15 @@
+To add custom sfx to your games of What the Dub, simply add wav files to the StreamingAssets/CustomSfx folder of your installed game.
+
+The filename of the wave file will be how the sfx option is displayed on the web client at playwtd.com.
+
+For the best results, make sure to trim most of the white space from the beginning and end of the clip.
+
+To add more than one audio file for a single sfx option, simply add a number to the end of the file. For example: 
+
+Gun Shot 1.wav
+Gun Shot 2.wav
+Gun Shot 3.wav
+
+When a player selects an sfx option with multiple audio files, one of the audio files will be played at random. This can add variety to an option that may be used multiple times in a row. 
+
+Note: Any audio file over 5 seconds in length will be ignored.
