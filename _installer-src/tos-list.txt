@@ -6,6 +6,7 @@
 
 # One line - one clip name. No folder names, no nothing. Just clip name.
 
+forsen-another_swedish_streamer
 forsen-bannedword
 forsen-comedycd
 forsen-isay
@@ -13,3 +14,4 @@ forsen-pms
 forsen-sleep
 forsen-swedistan
 forsen-trihard
+
