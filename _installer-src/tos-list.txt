@@ -1,0 +1,12 @@
+# This file contains a list of clips which will be excluded from the game if user selects the "Max Twitch-friendly mode" during installation.
+# Lines starting with # are omitted from parsing.
+
+# One line - one clip name. No folder names, no nothing. Just clip name.
+
+forsen-bannedword
+forsen-comedycd
+forsen-isay
+forsen-pms
+forsen-sleep
+forsen-swedistan
+forsen-trihard
