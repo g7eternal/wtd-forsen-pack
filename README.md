@@ -1,17 +1,28 @@
 # What the Dub?! - Forsen pack
 This is a pack of clips taken from [Sebastian "RolePlayer" Fors (Forsen)](https://twitch.tv/forsen) to be used in the game called [What the Dub?!](https://store.steampowered.com/app/1495860/What_The_Dub/)
 
+### This pack features:
++ Over 70 new custom clips to dub!
++ Custom UI videos (intro, round announcements, game end videos)
++ And a whole lot of new SFX to use in your dubs!
+
 > ⚠ Clips in this pack contain strong language :)
 
 ## How to install
 ### Automatic installation
 Get the [auto-installer](https://github.com/g7eternal/wtd-forsen-pack/releases/download/dummy_tag_1/wtd-forsen-pack-auto.exe) - it will take care of finding your game and importing all the new clips! The whole process is just a few clicks!
+#### Benefits of auto-installer:
++ downloads the latest version of the pack
++ automatically copies all the necessary files into your game folder
++ allows you to select between normal and extended editions of the pack
++ allows you to leave the original video clips - effectively mixing custom and default clips for more content!
++ for streamers - has an option to remove the clips which may be considered as being too "edgy" or borderline "Twitch TOS"-unfriendly.
 
 ### Manual installation
-1. Download and unzip the latest version of the pack: 
-    + Forsen pack (~0.9gb): 
+1. Choose your flavor, then download and unzip the pack: 
+    + Forsen pack - normal edition (~0.9gb): 
         + [GitHub](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.4.1/wtd-forsen-pack.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip)
-    + or Extended Forsen pack (with bonus clips from [nymn pack](https://github.com/badoge/wtd-nymn-pack), >1gb): 
+    + Forsen pack - extended edition (with bonus clips from [nymn pack](https://github.com/badoge/wtd-nymn-pack), >1gb): 
         + [GitHub](https://github.com/badoge/wtd-nymn-pack/releases/download/v2forsen/wtd-pack-for-forsen.zip)
 
 2. In your Steam library select the **What the Dub?!** game, right-click -> _Manage_ -> _Browse local files_
@@ -29,7 +40,9 @@ Get the [auto-installer](https://github.com/g7eternal/wtd-forsen-pack/releases/d
 
     ![forsen clips only](https://user-images.githubusercontent.com/18620902/116491700-8b027480-a8ab-11eb-9c9e-89aeea4a9d90.gif)
 
-5. All done! Start up the game to confirm: installation has been successful if new game intro is sus.
+5. *Optional*: If you would like to exclude the "risky" clips, consult the [clip list](https://raw.githubusercontent.com/g7eternal/wtd-forsen-pack/main/_installer-src/tos-list.txt) file. It contains instructions as well as the list of files to be removed.
+
+6. All done! Start up the game to confirm: installation has been successful if new game intro is sus.
 
 ## How to remove pack
 The easiest way: delete the game, then reinstall it.
