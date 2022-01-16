@@ -51,6 +51,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: pack_exclusive; Description: "Install Forsen pack EXCLUSIVELY: all existing clips will be removed from the game, you will be playing only with clips from this pack"; GroupDescription: "Select installation variant:"; Components: Forsen_pack; Flags: exclusive
 Name: pack_mixed; Description: "MIX UP all the clips: Clips from Forsen pack will be added into the clip pool and mixed up with all the existing clips"; GroupDescription: "Select installation variant:"; Components: Forsen_pack; Flags: exclusive unchecked
+Name: tos_generic; Description: "Normal mode: clips are not filtered"; GroupDescription: "Twitch TOS compliance:"; Components: Forsen_pack; Flags: exclusive
+Name: tos_strict; Description: "Strict mode: game will NOT feature clips that may be considered as borderline TOS-breaking or too edgy in general"; GroupDescription: "Twitch TOS compliance:"; Components: Forsen_pack; Flags: exclusive unchecked
 
 [Files]
 Source: "{tmp}\wtd-forsen-pack-main\*"; DestDir: "{app}\WhatTheDub_Data\StreamingAssets"; Components: Forsen_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
@@ -69,6 +71,10 @@ const Steam32RegPath = 'SOFTWARE\Valve\Steam';
       // shell flags (for unzipper)
       SHCONTCH_NOPROGRESSBOX = 0; // use 4 to disable progressbox
       SHCONTCH_RESPONDYESTOALL = 16;
+      // Twitch TOS clips removal
+      TOS_ListFile = 'WhatTheDub_Data\StreamingAssets\_installer-src\tos-list.txt';
+      TOS_ClipLocation = 'WhatTheDub_Data\StreamingAssets\VideoClips';
+      TOS_ClipFormat = '.mp4';
 
 var SteamPath: string;
     SteamLibraryList: TArrayOfString;
@@ -221,6 +227,10 @@ var fpath: String;
     bkpfolder: String;
     targetPath: String;
     Page: TWizardPage;
+    TOS_List: TArrayOfString;
+    TOS_Item: String;
+    TOS_ClipFile: String;
+    i: Integer; // is there really no way to iterate over array without index? pepeW
 begin
   Case CurStep of
     ssInstall: begin
@@ -263,6 +273,33 @@ begin
       WizardForm.ProgressGauge.Style := npbstMarquee;
     end;
     ssPostInstall: begin
+      // TOS: remove clips in the cmonBruh list
+      if (WizardIsTaskSelected('tos_strict'))
+      then begin
+        if (LoadStringsFromFile(
+          AddBackSlash(ExpandConstant('{app}')) + TOS_ListFile,
+          TOS_List
+        )) then begin
+          for i := 0 to GetArrayLength(TOS_List)-1 do begin
+            TOS_Item := TOS_List[i];
+            if (Length(Trim(TOS_Item)) > 0) and (not WildcardMatch(Trim(TOS_Item), '#*')) 
+            then begin
+              TOS_ClipFile := AddBackSlash(ExpandConstant('{app}')) + AddBackSlash(TOS_ClipLocation) + TOS_Item;
+              if not WildcardMatch(TOS_ClipFile, '*'+TOS_ClipFormat) then TOS_ClipFile := TOS_ClipFile + TOS_ClipFormat;
+              if (DeleteFile(TOS_ClipFile))
+                then Log(Format('[TOS] Clip has been removed: %s', [TOS_ClipFile]))
+                else Log(Format('[TOS] Failed to remove a clip: %s', [TOS_ClipFile]));
+            end;
+          end;
+        end else begin
+          Log(Format('[TOS] Failed to acquire the list of edgy clips at %s; clips will not be filtered!', [TOS_ListFile]));
+          MsgBox('Heads up! We have a slight problem.'#13#10#13#10
+            'Installer failed to read the list of TOS-unfriendly clips, therefore the clips have not been filtered.'#13#10#13#10
+            'The game will still run fine, just be careful with streaming on Twitch. And don''t say you haven''t been warned.',
+            mbError, MB_OK);
+        end;
+      end;
+      // all done, tell user to relax
       MsgBox('WTD: Forsen pack has been installed!'#13#10#13#10
         'Should you ever want to remove the pack, you are better off re-installing the game. (I''m too lazy to make a proper uninstaller LULE)'#13#10
         'Or you could remove the pack files manually: follow the instructions at our GitHub page on how to do it, original game files have been backed up for you.'#13#10#13#10
