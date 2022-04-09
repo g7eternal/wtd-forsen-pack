@@ -24,7 +24,7 @@ When running the installer, you may see a warning about running a file from untr
 ### Manual installation
 1. Choose your flavor, then download and unzip the pack: 
     + Forsen pack - normal edition (~0.9gb): 
-        + [GitHub](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.4.1/wtd-forsen-pack.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip)
+        + [GitHub](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/tags/1.0.0.zip) 
     + Forsen pack - extended edition (with bonus clips from [nymn pack](https://github.com/badoge/wtd-nymn-pack), >1gb): 
         + [GitHub](https://github.com/badoge/wtd-nymn-pack/releases/download/v2forsen/wtd-pack-for-forsen.zip)
 
