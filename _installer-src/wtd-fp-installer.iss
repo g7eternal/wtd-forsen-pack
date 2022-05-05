@@ -1,8 +1,9 @@
 #define MyAppName "What The Dub: Forsen Pack"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "@G7_Eternal"
 #define MyAppURL "https://github.com/g7eternal/wtd-forsen-pack"
 #define MyAppSourceURL "https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip"
+;#define MyAppSourceURL "http://localhost:2234/wtd-forsen-pack-main.zip"
 #define MyAppExtensionURL "https://github.com/g7eternal/wtd-forsen-pack/releases/download/dummy_tag_1/wtd-fp-extension.zip"
 
 [Setup]
@@ -18,7 +19,8 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 CreateAppDir=yes
-DefaultDirName={code:GetWTDPath|}
+DefaultDirName={autopf}
+DisableDirPage=yes
 DirExistsWarning=no
 ; User will have to remove the pack manually! 
 Uninstallable=no
@@ -55,8 +57,8 @@ Name: tos_generic; Description: "Normal mode: clips are not filtered"; GroupDesc
 Name: tos_strict; Description: "Strict mode: game will NOT feature clips that may be considered as borderline TOS-breaking or too edgy in general"; GroupDescription: "Twitch TOS compliance:"; Components: Forsen_pack; Flags: exclusive unchecked
 
 [Files]
-Source: "{tmp}\wtd-forsen-pack-main\*"; DestDir: "{app}\WhatTheDub_Data\StreamingAssets"; Components: Forsen_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
-Source: "{tmp}\wtd-fp-extension\*"; DestDir: "{app}\WhatTheDub_Data\StreamingAssets"; Components: Extension_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
+Source: "{tmp}\wtd-forsen-pack-main\*"; DestDir: "{code:GetInstallPath|}StreamingAssets"; Components: Forsen_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
+Source: "{tmp}\wtd-fp-extension\*"; DestDir: "{code:GetInstallPath|}StreamingAssets"; Components: Extension_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
@@ -64,7 +66,8 @@ Source: "{tmp}\wtd-fp-extension\*"; DestDir: "{app}\WhatTheDub_Data\StreamingAss
 const Steam32RegPath = 'SOFTWARE\Valve\Steam';
       Steam64RegPath = 'SOFTWARE\Wow6432Node\Valve\Steam';
       SteamLibPathDiv= '"'#9#9'"';
-      WTD_MediaPath  = 'WhatTheDub_Data\StreamingAssets\';
+      // external resources
+      WTD_Assets = 'StreamingAssets\';
       WTD_bkpPrefix  = 'mbackup_';
       WTD_ZipContainer= 'wtd-forsen-pack-source.zip';
       WTD_ZipExContainer= 'wtd-fp-extension.zip';
@@ -72,14 +75,39 @@ const Steam32RegPath = 'SOFTWARE\Valve\Steam';
       SHCONTCH_NOPROGRESSBOX = 0; // use 4 to disable progressbox
       SHCONTCH_RESPONDYESTOALL = 16;
       // Twitch TOS clips removal
-      TOS_ListFile = 'WhatTheDub_Data\StreamingAssets\_installer-src\tos-list.txt';
-      TOS_ClipLocation = 'WhatTheDub_Data\StreamingAssets\VideoClips';
+      TOS_ListFile = '_installer-src\tos-list.txt';
+      TOS_ClipLocation = 'VideoClips';
       TOS_ClipFormat = '.mp4';
 
 var SteamPath: string;
     SteamLibraryList: TArrayOfString;
     WhatTheDubPath: string;
     DownloadPage: TDownloadWizardPage;
+    ChooseGamePage: TInputOptionWizardPage;
+    ChooseDirPage: TInputDirWizardPage;
+
+function GetChosenGamePath(): string;
+begin
+  case ChooseGamePage.SelectedValueIndex of
+    0: Result := 'WhatTheDub\';
+    1: Result := 'RiffTraxTheGame\';
+    else Result := '';
+  end;
+end;
+
+function GetChosenGameDataPath(): string;
+begin
+  case ChooseGamePage.SelectedValueIndex of
+    0: Result := 'WhatTheDub_Data\';
+    1: Result := 'RiffTraxTheGame_Data\';
+    else Result := '';
+  end;
+end;
+
+function GetInstallPath(ObsoleteParam: string): string;
+begin
+  Result := AddBackSlash(ChooseDirPage.Values[0])+GetChosenGameDataPath();
+end;
 
 function GetWTDPath(ObsoleteParam: string): string;
 var i: Integer;
@@ -87,8 +115,20 @@ var i: Integer;
     libCount: Integer;
     subpos: Integer;
     tryThisPath: String;
+    chosenGame: String;
 begin
   WhatTheDubPath := '';
+  try
+    chosenGame := GetChosenGamePath();
+  except
+    Log('Failed to detect chosen game: ' + AddPeriod(GetExceptionMessage));
+  end;
+  if length(chosenGame) < 1 then begin
+    Log('User did not select the game! (yet?)');
+    Result := '';
+    Exit;
+  end;
+  Log('User selected game: '+chosenGame);
   if //find Steam install path from registry
     not(RegQueryStringValue(HKEY_LOCAL_MACHINE, Steam32RegPath, 'InstallPath', SteamPath))
     and 
@@ -121,13 +161,13 @@ begin
     SetArrayLength(SteamLibraryList, GetArrayLength(SteamLibraryList) + 1);
     SteamLibraryList[High(SteamLibraryList)] := SteamPath;
     Log('Found 1+'+IntToStr(libCount-3)+' Steam library folder variants');
-    // let's try to find the installed WhatTheDub game
+    // let's try to find the installed game
     for i := 0 to Length(SteamLibraryList)-1 do begin
       if DirExists(AddBackSlash(SteamLibraryList[i])) then begin
-        tryThisPath := AddBackSlash(SteamLibraryList[i])+'SteamApps\common\WhatTheDub\';
+        tryThisPath := AddBackSlash(SteamLibraryList[i])+'SteamApps\common\'+chosenGame;
         if DirExists(tryThisPath)
           then begin
-            Log('Found WhatTheDub game at: '+tryThisPath);
+            Log('Found selected game at: '+tryThisPath);
             WhatTheDubPath := tryThisPath;
           end;
       end;
@@ -136,23 +176,28 @@ begin
   Result := WhatTheDubPath;
 end;
 
-function InitializeSetup: Boolean;
-begin
-  if Length(GetWTDPath('')) < 1
-  then Result := (MsgBox('We couldn''t find "What The Dub" game on your PC automatically!'#13#10#13#10
-          'You need to install Steam, then install the base game in order to enjoy the Forsen pack!'#13#10
-          'Do you want to continue installation?',
-          mbError, MB_YESNO) = IDYES)
-  else Result := True;
-end;
-
 function NextButtonClick(CurPageID: Integer): Boolean;
+var AnyChecked: Boolean;
+  I: Integer;
 begin
   Case CurPageId of
-    wpSelectDir: begin
-      if not(DirExists(AddBackSlash(ExpandConstant('{app}'))+'WhatTheDub_Data'))
+    ChooseGamePage.ID: begin
+      for I := 0 to ChooseGamePage.CheckListBox.Items.Count - 1 do
+        begin
+          if ChooseGamePage.CheckListBox.Checked[I] then
+            AnyChecked := True;
+        end;
+        if (not(AnyChecked)) then MsgBox(
+          'Choose a game! Any game!'#13#10#13#10'If you don''t have a game, you can''t enjoy this pack!',
+          mbError, mb_OK
+        );
+        ChooseDirPage.Values[0] := GetWTDPath('');
+        Result := AnyChecked;
+    end;
+    ChooseDirPage.ID: begin
+      if not(DirExists(AddBackSlash(ChooseDirPage.Values[0])+GetChosenGameDataPath()))
         then begin
-          MsgBox('Folder "'+ExpandConstant('{app}')+' does not contain "What The Dub" game!'#13#10
+          MsgBox('Folder "'+ChooseDirPage.Values[0]+' does not contain the chosen game!'#13#10
             'You need to select a valid folder within Steam apps!', mbCriticalError, mb_OK);
           Result := false;
         end else Result := true;
@@ -217,9 +262,24 @@ begin
   Result := True;
 end;
 
-procedure InitializeWizard; // create a download page to fetch git contents
+procedure InitializeWizard;
 begin
+  // create a download page to fetch git contents
   DownloadPage := CreateDownloadPage(SetupMessage(msgWizardPreparing), SetupMessage(msgPreparingDesc), @OnDownloadProgress);
+  // create a page to choose between WTD and RiffTrax
+  ChooseGamePage := CreateInputOptionPage(wpWelcome,
+    'Choose your game', 'Which game would you like to install this pack onto?',
+    'This pack supports multiple games. Choose the one you have installed, then click Next.',
+    True, False);
+  ChooseGamePage.Add('What the Dub?!');
+  ChooseGamePage.Add('RiffTrax: The Game (new! - limited support)');
+  // create a custom "select directory" page
+  ChooseDirPage := CreateInputDirPage(ChooseGamePage.ID,
+  'Select game location', 'Where is your chosen game located?',
+  'We attempted to find the game you''ve chosen on your PC.'#13#10'The custom pack will be installed into this folder.'#13#10#13#10 +
+  'Please confirm the location, then click Next to continue.'#13#10'If you would like to select a different folder, click Browse.',
+  False, '');
+  ChooseDirPage.Add('');
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
@@ -255,7 +315,8 @@ begin
       // touch backup and game folders - and make the backups
       Page.Description := 'Backing up existing files...';
       try
-        fpath := AddBackSlash(ExpandConstant('{app}'))+WTD_MediaPath;
+        fpath := AddBackSlash(ChooseDirPage.Values[0])+GetChosenGameDataPath()+WTD_Assets;
+        Log('Unpacking files to: '+fpath);
         if not(ForceDirectories(fpath))
           then RaiseException('Cannot touch folder path! - '+fpath);
         bkpfolder := GetMD5OfString(GetDateTimeString('ddddd tt',#0,#0))+'\';
@@ -273,18 +334,19 @@ begin
       WizardForm.ProgressGauge.Style := npbstMarquee;
     end;
     ssPostInstall: begin
+      targetPath := GetChosenGameDataPath() + WTD_Assets;
       // TOS: remove clips in the cmonBruh list
       if (WizardIsTaskSelected('tos_strict'))
       then begin
         if (LoadStringsFromFile(
-          AddBackSlash(ExpandConstant('{app}')) + TOS_ListFile,
+          AddBackSlash(ChooseDirPage.Values[0]) + targetPath + TOS_ListFile,
           TOS_List
         )) then begin
           for i := 0 to GetArrayLength(TOS_List)-1 do begin
             TOS_Item := TOS_List[i];
             if (Length(Trim(TOS_Item)) > 0) and (not WildcardMatch(Trim(TOS_Item), '#*')) 
             then begin
-              TOS_ClipFile := AddBackSlash(ExpandConstant('{app}')) + AddBackSlash(TOS_ClipLocation) + TOS_Item;
+              TOS_ClipFile := AddBackSlash(ChooseDirPage.Values[0]) + AddBackSlash(targetPath + TOS_ClipLocation) + TOS_Item;
               if not WildcardMatch(TOS_ClipFile, '*'+TOS_ClipFormat) then TOS_ClipFile := TOS_ClipFile + TOS_ClipFormat;
               if (DeleteFile(TOS_ClipFile))
                 then Log(Format('[TOS] Clip has been removed: %s', [TOS_ClipFile]))
@@ -295,7 +357,7 @@ begin
           Log(Format('[TOS] Failed to acquire the list of edgy clips at %s; clips will not be filtered!', [TOS_ListFile]));
           MsgBox('Heads up! We have a slight problem.'#13#10#13#10
             'Installer failed to read the list of TOS-unfriendly clips, therefore the clips have not been filtered.'#13#10#13#10
-            'The game will still run fine, just be careful with streaming on Twitch. And don''t say you haven''t been warned.',
+            'The game will still run fine. But... just be extra careful, I guess. And don''t say you haven''t been warned.',
             mbError, MB_OK);
         end;
       end;
