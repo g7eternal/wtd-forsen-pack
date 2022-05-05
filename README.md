@@ -18,10 +18,13 @@ Get the [auto-installer](https://github.com/g7eternal/wtd-forsen-pack/releases/d
 + allows you to leave the original video clips - effectively mixing custom and default clips for more content!
 + for streamers - has an option to remove the clips which may be considered as being too "edgy" or borderline "Twitch TOS"-unfriendly.
 
+When running the installer, you may see a warning about running a file from untrusted source. Since the installer is not digitally signed, your PC will mark it as suspicious. That's completely fine, and you can proceed with installation:
+![smartscreen-warning](https://user-images.githubusercontent.com/40625769/149666886-cacdb7a2-6019-4d0e-aa70-e373e508ed73.png)
+
 ### Manual installation
 1. Choose your flavor, then download and unzip the pack: 
     + Forsen pack - normal edition (~0.9gb): 
-        + [GitHub](https://github.com/g7eternal/wtd-forsen-pack/releases/download/0.4.1/wtd-forsen-pack.zip) | [Mirror](https://g7eternal.ru/misc/wtd-forsen-pack.zip)
+        + [GitHub](https://github.com/g7eternal/wtd-forsen-pack/archive/refs/tags/1.0.0.zip) 
     + Forsen pack - extended edition (with bonus clips from [nymn pack](https://github.com/badoge/wtd-nymn-pack), >1gb): 
         + [GitHub](https://github.com/badoge/wtd-nymn-pack/releases/download/v2forsen/wtd-pack-for-forsen.zip)
 
