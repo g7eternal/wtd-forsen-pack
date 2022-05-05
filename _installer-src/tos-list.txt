@@ -2,7 +2,11 @@
 # Lines starting with # are omitted from parsing.
 
 # If you are installing the pack manually, you can still perform the exclusion.
-# Navigate to "WhatTheDub/WhatTheDub_Data/StreamingAssets/VideoClips" and delete clips which are listed below.
+# Navigate to the clips folder and delete clips which are listed below.
+
+# Clips folder location:
+# What The Dub: "WhatTheDub/WhatTheDub_Data/StreamingAssets/VideoClips"
+# RiffTrax: "RiffTraxTheGame/RiffTraxTheGame_Data/StreamingAssets/VideoClips"
 
 # One line - one clip name. No folder names, no nothing. Just clip name.
 
