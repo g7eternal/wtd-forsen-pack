@@ -112,6 +112,7 @@ Any way you'd like to:
 ## More packs
 If you are looking for more custom clips, check out these packs:
 - [What the Dub?! - nymn pack](https://github.com/badoge/wtd-nymn-pack)
+- [What the Dub?! - GTA pack](https://github.com/g7eternal/wtd-gta-pack)
 
 For more fun, check out these custom packs for other games:
 - [Jackbox 6: Forsen Pack](https://github.com/g7eternal/jackbox-forsen-pack-6)
