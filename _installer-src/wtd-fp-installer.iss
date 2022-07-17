@@ -5,6 +5,7 @@
 #define MyAppSourceURL "https://github.com/g7eternal/wtd-forsen-pack/archive/refs/heads/main.zip"
 ;#define MyAppSourceURL "http://localhost:2234/wtd-forsen-pack-main.zip"
 #define MyAppExtensionURL "https://github.com/g7eternal/wtd-forsen-pack/releases/download/dummy_tag_1/wtd-fp-extension.zip"
+#define MyAppGtaSourceURL "https://github.com/g7eternal/wtd-gta-pack/archive/refs/heads/master.zip"
 
 [Setup]
 ; for digital signature define signing tool in compiler as:
@@ -38,27 +39,29 @@ WizardSmallImageFile=logo.bmp
 ExtraDiskSpaceRequired=1234567890
 
 [Types]
-Name: "full"; Description: "Forsen Pack"
+Name: "full"; Description: "All the custom clips!"
+Name: "forsen"; Description: "Forsen Pack"
 Name: "extended"; Description: "Forsen Pack: Extended edition"
 Name: "custom"; Description: "Custom installation"; Flags: iscustom
 
 [Components]
-Name: Forsen_pack; Description: "What The Dub - Forsen pack: Clips from twitch.tv/forsen and friends; clip contents are mostly Forsen-related!"; Types: full extended custom; Flags: fixed
-Name: Extension_pack; Description: "Extended pack: [Yoinked from Nymn's pack] Various funny clips to increase your gameplay variety! Contents: Gachi, Wakaliwood, generic well-known clips, etc. (clips are stream-friendly)"; Types: extended
+Name: Forsen_pack; Description: "What The Dub - Forsen pack: Clips from twitch.tv/forsen and friends; clip contents are mostly Forsen-related!"; Types: full forsen extended custom; Flags: fixed
+Name: Extension_pack; Description: "Extension pack: [Yoinked from Nymn's pack] Various funny clips to increase your gameplay variety! Contents: Gachi, Wakaliwood, generic well-known clips, etc. (clips are stream-friendly)"; Types: full extended
+Name: Gta_pack; Description: "GTA pack: Clips of cutscenes from GTA series. Hilarious stream-friendly setups for your dubs, and more custom sounds to choose from!"; Types: full custom
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-;Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Tasks]
-Name: pack_exclusive; Description: "Install Forsen pack EXCLUSIVELY: all existing clips will be removed from the game, you will be playing only with clips from this pack"; GroupDescription: "Select installation variant:"; Components: Forsen_pack; Flags: exclusive
-Name: pack_mixed; Description: "MIX UP all the clips: Clips from Forsen pack will be added into the clip pool and mixed up with all the existing clips"; GroupDescription: "Select installation variant:"; Components: Forsen_pack; Flags: exclusive unchecked
+Name: pack_exclusive; Description: "Install this pack EXCLUSIVELY: all existing clips will be removed from the game, you will be playing only with clips from this pack"; GroupDescription: "Select installation variant:"; Components: Forsen_pack; Flags: exclusive
+Name: pack_mixed; Description: "MIX UP all the clips: Clips from this pack will be added into the clip pool and mixed up with all the existing clips"; GroupDescription: "Select installation variant:"; Components: Forsen_pack; Flags: exclusive unchecked
 Name: tos_generic; Description: "Normal mode: clips are not filtered"; GroupDescription: "Twitch TOS compliance:"; Components: Forsen_pack; Flags: exclusive
 Name: tos_strict; Description: "Strict mode: game will NOT feature clips that may be considered as borderline TOS-breaking or too edgy in general"; GroupDescription: "Twitch TOS compliance:"; Components: Forsen_pack; Flags: exclusive unchecked
 
 [Files]
 Source: "{tmp}\wtd-forsen-pack-main\*"; DestDir: "{code:GetInstallPath|}StreamingAssets"; Components: Forsen_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
 Source: "{tmp}\wtd-fp-extension\*"; DestDir: "{code:GetInstallPath|}StreamingAssets"; Components: Extension_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
+Source: "{tmp}\wtd-gta-pack-master\*"; DestDir: "{code:GetInstallPath|}StreamingAssets"; Components: Gta_pack; Flags: ignoreversion recursesubdirs createallsubdirs external
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
@@ -71,6 +74,7 @@ const Steam32RegPath = 'SOFTWARE\Valve\Steam';
       WTD_bkpPrefix  = 'mbackup_';
       WTD_ZipContainer= 'wtd-forsen-pack-source.zip';
       WTD_ZipExContainer= 'wtd-fp-extension.zip';
+      WTD_GtaContainer= 'wtd-gta-pack-source.zip';
       // shell flags (for unzipper)
       SHCONTCH_NOPROGRESSBOX = 0; // use 4 to disable progressbox
       SHCONTCH_RESPONDYESTOALL = 16;
@@ -207,6 +211,8 @@ begin
       DownloadPage.Add(ExpandConstant('{#MyAppSourceURL}'), WTD_ZipContainer, '');
       if (WizardIsComponentSelected('Extension_pack'))
         then DownloadPage.Add(ExpandConstant('{#MyAppExtensionURL}'), WTD_ZipExContainer, '');
+      if (WizardIsComponentSelected('Gta_pack'))
+        then DownloadPage.Add(ExpandConstant('{#MyAppGtaSourceURL}'), WTD_GtaContainer, '');
       DownloadPage.Show;
       try
         try
@@ -273,6 +279,8 @@ begin
     True, False);
   ChooseGamePage.Add('What the Dub?!');
   ChooseGamePage.Add('RiffTrax: The Game (new! - limited support)');
+  // wtd is the default option
+  ChooseGamePage.Values[0] := True;
   // create a custom "select directory" page
   ChooseDirPage := CreateInputDirPage(ChooseGamePage.ID,
   'Select game location', 'Where is your chosen game located?',
@@ -299,16 +307,27 @@ begin
       // unzip contents into temp location
       Page.Description := 'Unpacking contents... (may take a while!)';
       targetPath := ExpandConstant('{tmp}');
-      Log(Format('Unzipping files into %s', [targetPath]));
-      UnZip(
-        AddBackSlash(ExpandConstant('{tmp}')) + WTD_ZipContainer ,
-        targetPath
-      );
+      if (WizardIsComponentSelected('Forsen_pack'))
+        then begin
+        Log(Format('[main] Unzipping files into %s', [targetPath]));
+          UnZip(
+            AddBackSlash(ExpandConstant('{tmp}')) + WTD_ZipContainer ,
+            targetPath
+          );
+        end;
       if (WizardIsComponentSelected('Extension_pack'))
         then begin
           Log(Format('[extension pack] Unzipping files into %s', [targetPath]));
           UnZip(
             AddBackSlash(ExpandConstant('{tmp}')) + WTD_ZipExContainer ,
+            targetPath
+          );
+        end;
+      if (WizardIsComponentSelected('Gta_pack'))
+        then begin
+          Log(Format('[GTA pack] Unzipping files into %s', [targetPath]));
+          UnZip(
+            AddBackSlash(ExpandConstant('{tmp}')) + WTD_GtaContainer ,
             targetPath
           );
         end;
