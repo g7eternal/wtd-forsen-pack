@@ -208,7 +208,8 @@ begin
     end;
     wpReady: begin
       DownloadPage.Clear;
-      DownloadPage.Add(ExpandConstant('{#MyAppSourceURL}'), WTD_ZipContainer, '');
+      if (WizardIsComponentSelected('Forsen_pack'))
+        then DownloadPage.Add(ExpandConstant('{#MyAppSourceURL}'), WTD_ZipContainer, '');
       if (WizardIsComponentSelected('Extension_pack'))
         then DownloadPage.Add(ExpandConstant('{#MyAppExtensionURL}'), WTD_ZipExContainer, '');
       if (WizardIsComponentSelected('Gta_pack'))
