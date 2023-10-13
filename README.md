@@ -11,6 +11,20 @@ Supported games are [What the Dub?!](https://store.steampowered.com/app/1495860/
 > ⚠ Clips in this pack contain strong language :)
 
 ## How to install
+### From Steam Workshop (WTD only)
+Since the introduction of "What The Dub?!" support of Steam Workshop, you can now subscribe to this clip pack - and Steam will take care of installing the clips for you!
+
+Visit [pack's Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3050295462) to subscribe.
+
+#### Benefits:
++ you can mix various packs in game, toggling them on and off
++ you can use Twitch chat integration to allow your chat to choose next clip
+
+#### Some features will be *unavailable*:
++ custom sound effects are not supported by Workshop
++ custom UI videos and elements included in this pack (game intro, round intros, scoreboard) are not supported by Workshop
+
+Therefore the *recommended* installation way is by using the *autoinstaller*. Read the next section for info.
 ### Automatic installation
 Get the [auto-installer](https://github.com/g7eternal/wtd-forsen-pack/releases/latest/download/wtd-forsen-pack-auto.exe) - it will take care of finding your game and importing all the new clips! The whole process is just a few clicks!
 #### Benefits of auto-installer:
@@ -54,7 +68,9 @@ When running the installer, you may see a warning about running a file from untr
 6. All done! Start up the game to confirm: installation has been successful if new game intro is sus.
 
 ## How to remove pack
-The easiest way: delete the game, then reinstall it.
+If you installed the pack using Workshop, you will have to unsubscribe - and Steam will automatically remove custom clips from your device.
+
+Otherwise, the easiest way: delete the game, then reinstall it.
 
 The proper way:
 
